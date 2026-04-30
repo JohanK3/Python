@@ -1,20 +1,15 @@
-# Récupérer le un prix HT et afficher le PrixTTC
-# PrixTTC=X*(1+TVA)    .15 = 0.15 (15%)
+"""Ce module calcule le prix TTC à partir d'un prix HT."""
 
-while True :
-    try :
-        PrixHT = float(input("Donnez votre prix HT : "))
-        # float parce que éventuelement il y a des , flottante dans les prix comme 8.990dt.
+# PrixTTC = X * (1 + TVA) ; TVA = 0.15 (15%)
 
-        print("Le prix TTC de notre prix HT : {0:.2f} "
-            "est : {1:.2f}".format(PrixHT, PrixHT * (1 + .15)))
-        # {:.2f} c'est pour dire que je veux 2 chiffre après la virgurle.
+while True:
+    try:
+        prix_ht = float(input("Donnez votre prix HT : "))
+        # float car il peut y avoir des décimales dans les prix (ex: 8.99)
+
+        prix_ttc = prix_ht * (1 + 0.15)
+        print(f"Le prix TTC de {prix_ht:.2f} est : {prix_ttc:.2f}")
+        # {:.2f} = 2 chiffres après la virgule
         break
-    except ValueError :
-        print("Faites attention Erreur de saisie :( ")
-
-
-
-
-
-
+    except ValueError:
+        print("Erreur de saisie, veuillez entrer un nombre valide.")
